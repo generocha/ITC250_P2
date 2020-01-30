@@ -9,3 +9,16 @@ if(isset($_POST['Temp']))
    echo '<p id="title">Temp Converter</p>
         <div class="container">
         <div id="inputbox">';
+ // verify if the user entered the a vaild number in the input
+   if(!is_numeric($temp) || (empty($temp) && $temp != 0)){
+                   echo '<h4>You must enter a numeric value!</h4>
+                         <p><button class="submit"><a href="' . THIS_PAGE . '">Convert another temp</a></button></p>
+                         </div></div>';
+               }
+  
+   // verify if the user choose one conversion mode
+   else if(empty($type)&&!empty($temp)){
+                   echo '<h4>You must choose one conversion mode!</h4>
+                         <p><button class="submit"><a href="' . THIS_PAGE . '">Convert another temp</a></button></p>
+                         </div></div>';
+               }
