@@ -44,3 +44,10 @@ if(isset($_POST['Temp']))
        $newTemp = round($temp + 273.15,2);
        return $temp.'&deg; Celsius = '.$newTemp.'&deg; Kelvin';
 
+   }
+}
+ }
+// invoke the function and pass the $temp and $type parameters
+echo '<h2>'.convertTemp($temp,$type).'</h2>  
+     <p><button class="submit"><a href="' . THIS_PAGE . '">Convert another temp</a></button></p>
+     </div></div>';
