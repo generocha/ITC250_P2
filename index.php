@@ -51,3 +51,36 @@ if(isset($_POST['Temp']))
 echo '<h2>'.convertTemp($temp,$type).'</h2>  
      <p><button class="submit"><a href="' . THIS_PAGE . '">Convert another temp</a></button></p>
      </div></div>';
+
+  
+}else{
+// display the input
+   echo '
+   <p id="title">Temp Converter</p>
+     <div class="container">
+     <div id="inputbox">
+           <form action="" method="POST">
+               <h2>Enter your temperature <input type="number" max="500" name="Temp" />
+               <input id="submit" type="submit" value="convert" /></h2><br />
+                   <div id="optionwindow">
+                   <legend>Select a temperature conversion</legend>
+                   <span class="option">
+                   <p><input type="radio" name="TemperatureConversion" value="fc" />Fahrenheit to Celsius</p><br />
+                   <p><input type="radio" name="TemperatureConversion" value="cf" />Celsius to Fahrenheit</p>
+                   </span>
+                   <span class="option">
+                   <p><input type="radio" name="TemperatureConversion" value="fk" />Fahrenheit to Kelvin</p><br />
+                   <p><input type="radio" name="TemperatureConversion" value="kf" />Kelvin to Fahrenheit</p>
+                   </span>
+                   <span class="option">
+                   <p><input type="radio" name="TemperatureConversion" value="kc" />Kelvin to Celsius</p><br />
+                   <p><input type="radio" name="TemperatureConversion" value="ck" />Celsius to Kelvin</p>
+                   </span>
+                   <div>
+           </form>
+       </div>
+       </div>';
+    }
+?>
+</body>
+</html>
