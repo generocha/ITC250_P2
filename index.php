@@ -15,7 +15,7 @@ if(isset($_POST['Temp']))
                          <p><button class="submit"><a href="' . THIS_PAGE . '">Convert another temp</a></button></p>
                          </div></div>';
                }
-  
+
    // verify if the user choose one conversion mode
    else if(empty($type)&&!empty($temp)){
                    echo '<h4>You must choose one conversion mode!</h4>
@@ -47,7 +47,8 @@ if(isset($_POST['Temp']))
    }
 }
  }
+}
 // invoke the function and pass the $temp and $type parameters
-echo '<h2>'.convertTemp($temp,$type).'</h2>  
+echo '<h2>'.convertTemp($temp,$type).'</h2>
      <p><button class="submit"><a href="' . THIS_PAGE . '">Convert another temp</a></button></p>
      </div></div>';
