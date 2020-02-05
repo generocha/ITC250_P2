@@ -1,3 +1,58 @@
+<!doctype html>
+<html>
+   <head>
+<style>
+body{
+   background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}
+#title{
+   margin-top:5%;
+   text-align: center;
+   font-size: 2em;
+   font-family:Arial black;
+   color:azure;
+}
+.container{
+   width: 60%;
+   margin:0 auto;
+   height: 50%;
+   background-color: #fff;
+   opacity:0.7;
+   border-radius:1em;
+   overflow: hidden;
+   -moz-box-shadow:1px 1px 12px #333333; -webkit-box-shadow:1px 1px 12px #333333; box-shadow:1px 1px 12px #333333;
+}
+#inputbox{
+   padding: 2em;
+}
+#submit{
+   margin-left:2em;
+   width: 25%;
+}
+form{
+   font-size:1em;
+   font-family:Arial;
+}
+.option{
+   display:block;
+   float:left;
+   width:30%;
+   padding:1%;
+   overflow: hidden;
+}
+#optionwindow{
+   display:block;
+   padding:3%;
+   height:50%;
+   background-color: #efefef;
+   border-radius:1em;
+   overflow: hidden;
+}
+</style>
+   </head>
+   <body>
 <?php
 define('THIS_PAGE',basename($_SERVER['PHP_SELF']));
 if(isset($_POST['Temp']))
@@ -11,18 +66,16 @@ if(isset($_POST['Temp']))
         <div id="inputbox">';
  // verify if the user entered the a vaild number in the input
    if(!is_numeric($temp) || (empty($temp) && $temp != 0)){
-                   echo '<h4>You must enter a numeric value!</h4>
-                         <p><button class="submit"><a href="' . THIS_PAGE . '">Convert another temp</a></button></p>
-                         </div></div>';
-               }
-
+        echo '<h4>You must enter a numeric value!</h4>
+                <p><button class="submit"><a href="' . THIS_PAGE . '">Convert another temp</a></button></p>
+                </div></div>';
+    }
    // verify if the user choose one conversion mode
    else if(empty($type)&&!empty($temp)){
-                   echo '<h4>You must choose one conversion mode!</h4>
-                         <p><button class="submit"><a href="' . THIS_PAGE . '">Convert another temp</a></button></p>
-                         </div></div>';
-               }
-  else{
+            echo '<h4>You must choose one conversion mode!</h4>
+                    <p><button class="submit"><a href="' . THIS_PAGE . '">Convert another temp</a></button></p>
+                    </div></div>';
+    }else{
   // function declaration convertTemp
   function convertTemp($temp,$type){
    if($type == 'fc'){// Fahrenheit to Celsius selected
@@ -43,17 +96,13 @@ if(isset($_POST['Temp']))
    }elseif($type == 'ck'){// Celsius to Kelvin selected
        $newTemp = round($temp + 273.15,2);
        return $temp.'&deg; Celsius = '.$newTemp.'&deg; Kelvin';
-
-   }
+    }
 }
- }
-}
+  }
 // invoke the function and pass the $temp and $type parameters
 echo '<h2>'.convertTemp($temp,$type).'</h2>
      <p><button class="submit"><a href="' . THIS_PAGE . '">Convert another temp</a></button></p>
-     </div></div>';
-
-  
+     </div></div>';  
 }else{
 // display the input
    echo '
